@@ -1,0 +1,111 @@
+Anotações do Projeto de Cadastro de Funcionários
+
+Este código é um exemplo de um programa em Java que cria uma aplicação gráfica simples para o cadastro de funcionários. Vou explicar cada parte de forma simples para que você possa entender melhor.
+
+### Estrutura Básica do Programa
+
+1. **Importação de Bibliotecas:**
+   - `import javax.swing.*;` e `import java.awt.*;` são linhas que importam bibliotecas que permitem criar interfaces gráficas (janelas, botões, campos de texto, etc.) e controlar o layout dos componentes na tela.
+
+2. **Classe Principal:**
+   - A classe `CadastroFuncionariosApp` é onde o programa começa. Dentro dela, existe o método `main`, que é o ponto de partida de qualquer programa em Java.
+
+### Configuração da Janela
+
+3. **Configuração da Janela Principal:**
+   - `JFrame frame = new JFrame("Cadastro de Funcionários");` cria a janela principal da aplicação com o título "Cadastro de Funcionários".
+   - `frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);` define que ao fechar a janela, o programa deve ser encerrado.
+   - `frame.setSize(800, 600);` define o tamanho da janela (800 pixels de largura por 600 pixels de altura).
+
+### Criação de Abas
+
+4. **Criação do `JTabbedPane`:**
+   - `JTabbedPane tabbedPane = new JTabbedPane();` cria um componente que permite adicionar várias abas na interface, cada uma com conteúdos diferentes.
+
+5. **Aba Principal:**
+   - `JPanel abaPrincipal = new JPanel(new GridBagLayout());` cria um painel (área dentro da aba) onde os campos de cadastro serão organizados.
+   - `GridBagLayout` é o tipo de layout utilizado, que permite organizar os componentes de forma mais flexível.
+
+### Adicionando Campos de Texto e Rótulos
+
+6. **Adicionando Campos e Rótulos:**
+   - A interface é dividida em linhas e colunas usando `GridBagConstraints` para posicionar os componentes. Cada campo de texto, rótulo, ou botão é adicionado a uma posição específica na grade (grid).
+
+   **Exemplo:**
+   - `new JLabel("CPF:")` cria um rótulo com o texto "CPF:".
+   - `JTextField txtCPF = new JTextField(15);` cria um campo de texto onde o usuário pode digitar o CPF.
+   - Esses componentes são posicionados na interface usando coordenadas (como `(0, 0)` para a primeira coluna na primeira linha).
+
+### Organização dos Dados
+
+7. **Divisão de Dados:**
+   - A aba principal é organizada em seções como "Dados Gerais", "Endereço", "Dados Pessoais", etc. Cada seção tem campos específicos, como CPF, Nome, Empresa, Endereço, Telefone, etc.
+
+### Adicionando Abas ao Painel
+
+8. **Outras Abas:**
+   - O código cria várias abas, mas apenas a primeira (Aba Principal) tem campos e rótulos adicionados. As outras abas ("Documentação", "Contrato", "Operacional") são criadas vazias para que você possa adicionar mais campos no futuro.
+
+### Exibindo a Janela
+
+9. **Mostrando a Janela:**
+   - `frame.add(tabbedPane);` adiciona o componente de abas na janela.
+   - `frame.setVisible(true);` torna a janela visível para o usuário.
+
+Código Básico:
+
+package br.com.cadastrofuncionarios;
+
+import javax.swing.*;
+
+public class CadastroFuncionariosApp {
+
+    public static void main(String[] args) {
+        // Configuração básica da janela
+        JFrame frame = new JFrame("Cadastro de Funcionários");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(600, 400);
+
+        // Criação do JTabbedPane para as abas
+        JTabbedPane tabbedPane = new JTabbedPane();
+
+        // Abas
+        JPanel abaPrincipal = new JPanel();
+        JPanel abaDocumentacao = new JPanel();
+        JPanel abaContrato = new JPanel();
+        JPanel abaOperacional = new JPanel();
+
+        // Configuração do layout da aba Principal
+        abaPrincipal.setLayout(new BoxLayout(abaPrincipal, BoxLayout.Y_AXIS));
+
+        // Campo Nome
+        JLabel lblNome = new JLabel("Nome:");
+        JTextField txtNome = new JTextField();
+        abaPrincipal.add(lblNome);
+        abaPrincipal.add(txtNome);
+
+        // Campo CPF
+        JLabel lblCPF = new JLabel("CPF:");
+        JTextField txtCPF = new JTextField();
+        abaPrincipal.add(lblCPF);
+        abaPrincipal.add(txtCPF);
+
+        // Campo Data de Nascimento
+        JLabel lblDataNascimento = new JLabel("Data de Nascimento:");
+        JTextField txtDataNascimento = new JTextField();
+        abaPrincipal.add(lblDataNascimento);
+        abaPrincipal.add(txtDataNascimento);
+
+        // Adicionando as abas ao tabbedPane
+        tabbedPane.addTab("Principal", abaPrincipal);
+        tabbedPane.addTab("Documentação", abaDocumentacao);
+        tabbedPane.addTab("Contrato", abaContrato);
+        tabbedPane.addTab("Operacional", abaOperacional);
+
+        // Adicionando o tabbedPane à janela
+        frame.add(tabbedPane);
+
+        // Exibindo a janela
+        frame.setVisible(true);
+    }
+}

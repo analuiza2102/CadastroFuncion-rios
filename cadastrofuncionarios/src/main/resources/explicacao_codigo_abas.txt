@@ -1,0 +1,42 @@
+Explicação do Código de Cadastro de Funcionários em Java Swing
+
+1. Importações e Configurações Iniciais:
+- O código utiliza bibliotecas Swing e AWT para criar a interface gráfica.
+- As importações incluem javax.swing.* para componentes de GUI e java.awt.* para layouts como GridBagLayout e GridBagConstraints.
+
+2. Estrutura da Classe Principal:
+- A classe `CadastroFuncionariosApp` é a principal e contém o método `main`, que é o ponto de entrada do programa.
+
+3. Configuração da Janela Principal:
+- Um `JFrame` é criado para ser a janela principal da aplicação.
+- O tamanho da janela é definido em 800x600 pixels.
+- O método `setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)` garante que o programa será encerrado ao fechar a janela.
+
+4. Criação do `JTabbedPane`:
+- Um `JTabbedPane` é usado para criar as diferentes abas ("Principal", "Documentação", "Contrato", "Operacional").
+- Cada aba é representada por um `JPanel` com layout específico.
+
+5. Layout das Abas:
+- O `GridBagLayout` é utilizado para organizar os componentes nas abas, proporcionando uma estrutura flexível e bem organizada.
+- `GridBagConstraints` é usado para definir o posicionamento, tamanho e comportamento dos componentes.
+
+6. Adição de Componentes:
+- As abas contêm `JLabels` para rótulos e `JTextFields` para entrada de texto.
+- Em algumas abas, são usados `JComboBox` para listas suspensas (ex.: seleção de sexo).
+- Componentes são adicionados com margens definidas por `Insets` e são organizados em uma grade.
+
+7. Criação das Abas Específicas:
+- **Aba Principal**: Inclui campos como CPF, Nome, Empresa, Matrícula, Endereço, Telefone, etc.
+- **Aba Documentação**: Destinada a informações documentais como RG, CPF, entre outros.
+- **Aba Contrato**: Inclui campos como Data de Admissão e Cargo.
+- **Aba Operacional**: Destinada a informações operacionais como Setor e Turno.
+
+8. Adição das Abas ao `JTabbedPane`:
+- Cada aba (`JPanel`) é adicionada ao `JTabbedPane` usando o método `addTab`.
+
+9. Exibição da Janela:
+- A janela é tornada visível com `frame.setVisible(true)` após todas as configurações e adições.
+
+Próximos Passos:
+- Adicionar botões de ação como "Salvar", "Excluir", "Concluir".
+- Implementar validações e estilizações adicionais conforme necessário.
