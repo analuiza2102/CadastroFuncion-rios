@@ -49,7 +49,7 @@ public class AbaDocumentacao extends JPanel {
         gbc.gridx = 4;
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.WEST;
-        JComboBox<String> cmbOrgaoExpedidor = new JComboBox<>(new String[]{"SSP", "DGPC", "Outros"});
+        JComboBox<String> cmbOrgaoExpedidor = new JComboBox<>(new String[]{"SSP", "DGPC", "DETRAN", "IFP", "PM", "PC", "Outros"});
         cmbOrgaoExpedidor.setFont(fontField);
         painelRG.add(cmbOrgaoExpedidor, gbc);
 
@@ -63,7 +63,7 @@ public class AbaDocumentacao extends JPanel {
         gbc.gridx = 6;
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.WEST;
-        JComboBox<String> cmbUF = new JComboBox<>(new String[]{"GO", "SP", "RJ"});
+        JComboBox<String> cmbUF = new JComboBox<>(new String[]{"GO", "SP", "RJ", "MG", "RS", "SC", "PR", "DF", "BA", "CE", "PE", "RN", "PB", "SE", "AL", "MA", "PI", "TO", "PA", "AP", "RR", "AM", "AC", "RO", "MT", "MS", "ES", "RN", "Outros"});
         cmbUF.setFont(fontField);
         painelRG.add(cmbUF, gbc);
 

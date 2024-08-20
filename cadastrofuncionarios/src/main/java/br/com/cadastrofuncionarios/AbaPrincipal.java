@@ -35,7 +35,7 @@ public class AbaPrincipal extends JPanel {
         gbc.gridx = 1;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.WEST;
-        JComboBox<String> cmbEmpresa = new JComboBox<>(new String[]{"1000 - EMPRESA RH"});
+        JComboBox<String> cmbEmpresa = new JComboBox<>(new String[]{"1000 - EMPRESA RH", "1001 - EMPRESA FINANCEIRA", "1002 - EMPRESA DE TECNOLOGIA", "1003 - EMPRESA DE LOGÍSTICA", "1004 - EMPRESA DE MARKETING", "1005 - EMPRESA DE VENDAS"});
         cmbEmpresa.setFont(fontField);
         painelDadosGerais.add(cmbEmpresa, gbc);
 
@@ -49,7 +49,7 @@ public class AbaPrincipal extends JPanel {
         gbc.gridx = 4;
         gbc.gridwidth = 3;
         gbc.anchor = GridBagConstraints.WEST;
-        JComboBox<String> cmbDivisao = new JComboBox<>(new String[]{"1001 - ADMINISTRAÇÃO"});
+        JComboBox<String> cmbDivisao = new JComboBox<>(new String[]{"1001 - ADMINISTRAÇÃO", "1002 - FINANCEIRO", "1003 - TECNOLOGIA", "1004 - LOGÍSTICA", "1005 - MARKETING", "1006 - VENDAS"});
         cmbDivisao.setFont(fontField);
         painelDadosGerais.add(cmbDivisao, gbc);
 
@@ -65,7 +65,7 @@ public class AbaPrincipal extends JPanel {
         gbc.gridx = 1;
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.WEST;
-        JTextField txtMatricula = new JTextField("2", 5);
+        JTextField txtMatricula = new JTextField("", 5);
         txtMatricula.setFont(fontField);
         painelDadosGerais.add(txtMatricula, gbc);
 
