@@ -1,12 +1,10 @@
 # Security Policy
 
 ## Supported Versions
-Indique quais versões do projeto estão atualmente recebendo atualizações de segurança.
 
 | Version | Supported          |
 | ------- | ------------------ |
 | 1.x     | :white_check_mark: |
-| < 1.0   | :x:                |
 
 ## Reporting a Vulnerability
 Informe como as vulnerabilidades devem ser reportadas.
