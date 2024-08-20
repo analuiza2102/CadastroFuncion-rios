@@ -1,4 +1,4 @@
-package cadastrofuncionarios.src.main.java.br.com.cadastrofuncionarios;
+package br.com.cadastrofuncionarios;
 
 import javax.swing.*;
 import java.awt.*;

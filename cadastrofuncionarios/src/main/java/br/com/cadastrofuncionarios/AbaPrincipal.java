@@ -1,4 +1,4 @@
-package cadastrofuncionarios.src.main.java.br.com.cadastrofuncionarios;
+package br.com.cadastrofuncionarios;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -17,10 +17,11 @@ public class AbaPrincipal extends JPanel {
         Font fontField = new Font("Arial", Font.PLAIN, 14); // Fonte para JTextFields
         Font fontTitle = new Font("Arial", Font.BOLD, 16);  // Fonte para Títulos de painéis
 
-        // Painel de "Dados gerais"
+        // Criando e configurando o painel de "Dados gerais"
         JPanel painelDadosGerais = new JPanel(new GridBagLayout());
-        painelDadosGerais.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Dados Gerais", TitledBorder.LEFT, TitledBorder.TOP));
-        ((TitledBorder) painelDadosGerais.getBorder()).setTitleFont(fontTitle); // Aplicando a fonte ao título
+        TitledBorder borderDadosGerais = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Dados Gerais", TitledBorder.LEFT, TitledBorder.TOP);
+        borderDadosGerais.setTitleFont(fontTitle);
+        painelDadosGerais.setBorder(borderDadosGerais);
 
         // Linha 1 - Empresa e Divisão RH
         gbc.gridx = 0;
@@ -82,10 +83,11 @@ public class AbaPrincipal extends JPanel {
         txtFuncionario.setFont(fontField);
         painelDadosGerais.add(txtFuncionario, gbc);
 
-        // Painel de "Endereço"
+        // Criando e configurando o painel de "Endereço"
         JPanel painelEndereco = new JPanel(new GridBagLayout());
-        painelEndereco.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Endereço", TitledBorder.LEFT, TitledBorder.TOP));
-        ((TitledBorder) painelEndereco.getBorder()).setTitleFont(fontTitle); // Aplicando a fonte ao título
+        TitledBorder borderEndereco = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Endereço", TitledBorder.LEFT, TitledBorder.TOP);
+        borderEndereco.setTitleFont(fontTitle);
+        painelEndereco.setBorder(borderEndereco);
 
         // Linha 3 - CEP e Endereço
         gbc.gridx = 0;
