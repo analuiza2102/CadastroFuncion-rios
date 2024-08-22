@@ -12,55 +12,61 @@ public class CadastroFuncionariosApp {
         frame.setSize(800, 600);
         frame.setLocationRelativeTo(null); // Centraliza a janela na tela
 
-        // Criar o painel superior
+        // Criação e configuração dos componentes da interface
+        JPanel painelSuperior = criarPainelSuperior();
+
+        // Criação do JTabbedPane para as abas
+        JTabbedPane tabbedPane = criarAbas();
+
+        // Colocar o JTabbedPane dentro de um JScrollPane
+        JScrollPane scrollPane = new JScrollPane(tabbedPane);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        // Adicionar os painéis ao frame
+        frame.setLayout(new BorderLayout());
+        frame.add(painelSuperior, BorderLayout.NORTH);
+        frame.add(scrollPane, BorderLayout.CENTER);
+
+        // Exibe a tela
+        frame.setVisible(true);
+    }
+
+    // Método para criar o painel superior
+    private static JPanel criarPainelSuperior() {
         JPanel painelSuperior = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(2, 2, 2, 2); // Margens entre os componentes
 
-         // Definindo a fonte padrão para os componentes
-         Font fontLabel = new Font("Arial", Font.PLAIN, 14); // Fonte para JLabels
-         Font fontField = new Font("Arial", Font.PLAIN, 14); // Fonte para JTextFields
-         Font fontTitle = new Font("Arial", Font.BOLD, 16);  // Fonte para Títulos de painéis
-
         // Linha 1 - Status e Botões
-        gbc.gridx = 0; // Coluna 0 do grid de componentes, ou seja, a primeira coluna   
-        gbc.gridy = 0; // Linha 0 do grid de componentes, ou seja, a primeira linha 
-        gbc.gridwidth = 1; // Ocupa 1 coluna do grid 
-        gbc.anchor = GridBagConstraints.WEST; // Alinhamento à esquerda 
-        JLabel lblStatus = new JLabel("Status:"); // Rótulo "Status" 
-        painelSuperior.add(lblStatus, gbc); // Adiciona o rótulo ao painel 
-
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 1;
-        JLabel lblStatusValue = new JLabel("Aberta");  // Rótulo com o valor do status 
-        lblStatusValue.setForeground(Color.BLUE); // Define a cor do texto para azul
-        painelSuperior.add(lblStatusValue, gbc); // Adiciona o rótulo ao painel 
-
-        gbc.gridx = 2; // Coluna 2 do grid de componentes 
-        gbc.gridwidth = 1; // Ocupa 1 coluna do grid 
-        gbc.gridy = 0; // Linha 0 do grid de componentes
-        gbc.weightx = 0;
-        gbc.fill = GridBagConstraints.NONE;
         gbc.anchor = GridBagConstraints.WEST;
-        JButton btnSalvar = new JButton("Salvar"); // Botão "Salvar"
-        painelSuperior.add(btnSalvar, gbc); // Adiciona o botão ao painel
+        painelSuperior.add(new JLabel("Status:"), gbc);
+
+        gbc.gridx = 1;
+        JLabel lblStatusValue = new JLabel("Aberta");
+        lblStatusValue.setForeground(Color.BLUE);
+        painelSuperior.add(lblStatusValue, gbc);
+
+        gbc.gridx = 2;
+        JButton btnSalvar = new JButton("Salvar");
+        painelSuperior.add(btnSalvar, gbc);
 
         gbc.gridx = 3;
-        JButton btnConcluir = new JButton("Concluir"); // Botão "Concluir"
-        painelSuperior.add(btnConcluir, gbc); // Adiciona o botão ao painel 
+        JButton btnConcluir = new JButton("Concluir");
+        painelSuperior.add(btnConcluir, gbc);
 
         gbc.gridx = 4;
-        JButton btnExcluir = new JButton("Excluir"); // Botão "Excluir" 
-        painelSuperior.add(btnExcluir, gbc); // Adiciona o botão ao painel
+        JButton btnExcluir = new JButton("Excluir");
+        painelSuperior.add(btnExcluir, gbc);
 
         gbc.gridx = 5;
         JButton btnOcorrencia = new JButton("Ocorrência");
         painelSuperior.add(btnOcorrencia, gbc);
 
         gbc.gridx = 6;
-        JLabel lblSituacao = new JLabel("Situação:");
-        painelSuperior.add(lblSituacao, gbc);
+        painelSuperior.add(new JLabel("Situação:"), gbc);
 
         gbc.gridx = 7;
         JLabel lblSituacaoValue = new JLabel("Ativo");
@@ -75,7 +81,6 @@ public class CadastroFuncionariosApp {
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1;
-        gbc.anchor = GridBagConstraints.WEST;
         painelSuperior.add(new JLabel("CPF:"), gbc);
 
         gbc.gridx = 1;
@@ -94,26 +99,19 @@ public class CadastroFuncionariosApp {
         JTextField txtNome = new JTextField(25);
         painelSuperior.add(txtNome, gbc);
 
-        // Criação do JTabbedPane para as abas
-        JTabbedPane tabbedPane = new JTabbedPane();
+        return painelSuperior;
+    }
 
+    // Método para criar as abas do JTabbedPane
+    private static JTabbedPane criarAbas() {
+        JTabbedPane tabbedPane = new JTabbedPane();
+        
         // Adiciona as abas utilizando as classes separadas
         tabbedPane.addTab("Principal", new AbaPrincipal());
         tabbedPane.addTab("Documentação", new AbaDocumentacao());
         tabbedPane.addTab("Contrato", new AbaContrato());
         tabbedPane.addTab("Operacional", new AbaOperacional());
 
-        // Colocar o JTabbedPane dentro de um JScrollPane
-        JScrollPane scrollPane = new JScrollPane(tabbedPane);
-        //scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
-        // Adicionar os painéis ao frame
-        frame.setLayout(new BorderLayout());
-        frame.add(painelSuperior, BorderLayout.NORTH);
-        frame.add(scrollPane, BorderLayout.CENTER);
-
-        // Exibe a tela
-        frame.setVisible(true);
+        return tabbedPane;
     }
 }

@@ -20,12 +20,12 @@ public class AbaContrato extends JPanel {
         // Painel de "Vínculo"
         JPanel painelVinculo = new JPanel(new GridBagLayout());
         TitledBorder borderVinculo = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Vínculo", TitledBorder.LEFT, TitledBorder.TOP);
-        borderVinculo.setTitleFont(fontTitle);
-        painelVinculo.setBorder(borderVinculo);
+        borderVinculo.setTitleFont(fontTitle); // Aplicando a fonte ao título 
+        painelVinculo.setBorder(borderVinculo); // Adicionando a borda ao painel 
 
         // Linha 1 - Tipo de Vínculo e Tipo de Admissão
-        gbc.gridx = 0;
-        gbc.gridy = 0;
+        gbc.gridx = 0; // Coluna 0 do grid de componentes do painel "Vínculo"
+        gbc.gridy = 0; 
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.EAST;
         JLabel lblVinculo = new JLabel("Tipo de Vínculo");
